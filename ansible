@@ -1,0 +1,65 @@
+#start
+sudo apt update
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+
+
+#install ansible
+sudo apt-get install ansible
+ansible --version
+
+
+#in cmd with docker opened
+docker pull ubuntu 
+docker run -it --name abc --hostname managed-node -p 2222:22 ubuntu bash
+apt update
+apt install -y openssh-server python3
+service ssh start
+passwd
+apt update
+apt install -y vim
+vim /etc/ssh/sshd_config  //Change permission root login to yes//
+service ssh restart
+Ssh-keygen -t rsa
+
+
+#in ubunto 
+ssh-copy-id -p 2222 root@localhost
+sudo vi/etc/ansible/hosts
+
+#edit and add
+[managed_nodes]
+managed-node ansible_host=localhost ansible_port=2222 ansible_user=root
+
+ansible all -m ping
+
+
+
+# creating playbook
+mkdir playbooks
+ls
+cd playbooks
+vi first pb.yml
+
+#insert this in the file
+name: First Basic PB
+  hosts: localhost
+
+  tasks:
+  - name: Test Connectivity
+    ping:
+
+
+
+ansible-playbook first_pb.yml
+
+.
+.
+.
+.
+
+
+
+
+
