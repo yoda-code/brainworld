@@ -1,0 +1,25 @@
+#installation
+winget install Kubernetes.minikube
+winget install -e --id Kubernetes.kubectl
+
+#start
+minikube start --driver=docker    //if any problem//  minikube delete
+
+#docker status
+docker ps
+minikube status
+
+
+
+
+#Create deployment nginx
+kubectl create deployment abc --image=nginx:latest
+
+
+
+
+#check
+kubectl version
+minikube version
+
+
