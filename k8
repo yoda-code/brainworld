@@ -9,13 +9,18 @@ minikube start --driver=docker    //if any problem//  minikube delete
 docker ps
 minikube status
 
-
-
-
 #Create deployment nginx
 kubectl create deployment abc --image=nginx:latest
 
+#checking it
+kubectl get deployment
+kubectl get pods
+kubectl expose deployment abc --port=80 --type=LoadBalancer
+kubectl get services
+minikube service abc
 
+#Scaling up/down kubeernetes
+kubectl scale deployment abc –-replicas=3
 
 
 #check
